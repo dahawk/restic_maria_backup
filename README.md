@@ -16,4 +16,6 @@ There are no default values behind these variables, you have to provide all  of 
 
 ## Other stuff
 
-This image has ssh/sftp installed to make use of sftp as repository targets. In order to make headless, Host Key Verification is disabled. **Only use ssh/sftp servers that you really trust**
+- This image has ssh/sftp installed to make use of sftp as repository targets. In order to make headless, Host Key Verification is disabled. **Only use ssh/sftp servers that you really trust**
+
+- This image is published on docker hub under `hochri/restic_maria_backup`
