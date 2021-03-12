@@ -1,7 +1,7 @@
-FROM mariadb
+FROM debian:buster
 
 RUN apt-get update && \
-    apt-get install -y curl openssh-client && \
+    apt-get install -y mariadb-client curl openssh-client && \
     rm -rf /var/lib/apt/lists/* && \
     echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 
