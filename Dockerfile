@@ -1,8 +1,8 @@
 FROM debian:buster
 
 RUN apt-get update && \
-    apt-get install -y mariadb-client curl openssh-client && \
-    rm -rf /var/lib/apt/lists/* && \
+    apt-get install -y mariadb-client curl openssh-client bzip2 && \
+    rm -rf /var/lib/apt/lists/* /var/cache/debconf/* /var/lib/dpkg/status* && \
     echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 
 WORKDIR /opt
