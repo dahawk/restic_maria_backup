@@ -1,6 +1,9 @@
 FROM mariadb
 
-RUN apt-get update && apt-get install -y curl ssh && rm -rf /var/lib/apt/lists/* && echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
+RUN apt-get update && \
+    apt-get install -y curl openssh-client && \
+    rm -rf /var/lib/apt/lists/* && \
+    echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 
 WORKDIR /opt
 
