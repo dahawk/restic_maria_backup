@@ -13,6 +13,8 @@ Hostname of the MariaDB. This corresponds to the container name of the DB-Contai
 File name of the mysql dump file. 
 - RESTIC_REPOSITORY
 - RESTIC_PASSWORD
+- UID  
+Numeric representation of the UID that should own the created dump and execute the restic backup.
 
 There are no default values behind these variables, you have to provide all  of them!
 
