@@ -2,13 +2,13 @@
 
 if [ ! -z $UID ]
 then
-    adduser -u $UID -s /bin/sh -D -H restic
+    adduser -u $UID -s /bin/sh -D restic
     chown restic:restic .
-    user = $UID
-    su -u restic -c 'mysqldump -h $DBHOST -u $DBUSER --password=$DBPASSWORD $DBNAME > $DUMP'
-    su -u restic -c 'restic backup $DUMP'
+    user=$UID
+    su restic -c 'mysqldump -h $DBHOST -u $DBUSER --password=$DBPASSWORD $DBNAME > $DUMP'
+    su restic -c 'restic --no-cache backup $DUMP'
     exit 0
 fi
 
 mysqldump -h $DBHOST -u $DBUSER --password=$DBPASSWORD $DBNAME > $DUMP
-restic backup $DUMP
+restic --no-cache backup $DUMP

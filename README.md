@@ -22,8 +22,10 @@ For the values and meanings of the RESTIC_* variables and other variables you ma
 
 ## Other stuff
 
-- **NOTE** Currently this image does not support setting UID or GID. Backups will be stored as root. **This will break your non-privileged access to the repo**
-
 - This image has ssh/sftp installed to make use of sftp as repository targets. In order to make headless, Host Key Verification is disabled. **Only use ssh/sftp servers that you really trust**
+
+- You can set a full path for file as well however, working outside of /opt or /tmp will most likely cause problems with non-existing directories
+
+- You can use local repositores with restic as well. In this case you have to mount the container as well. Just make sure that DUMP and the repository don't occupy the same directory in the container.
 
 - This image is published on docker hub under `hochri/restic_maria_backup`
