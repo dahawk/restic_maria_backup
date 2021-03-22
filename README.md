@@ -4,17 +4,18 @@ Take the mariadb image, add restic to it and finish it off with a bash script an
 
 Configuration for DB and Restic can be achieved through these environment variables:
 
-- DBHOST  
-Hostname of the MariaDB. This corresponds to the container name of the DB-Container
-- DBUSER
-- DBPASSWORD
-- DBNAME
-- DUMP  
-File name of the mysql dump file. 
-- RESTIC_REPOSITORY
-- RESTIC_PASSWORD
-- UID  
-Numeric representation of the UID that should own the created dump and execute the restic backup.
+| Env Name          | Description    | Examples  |
+| ----------        | -------------- | --------- |
+| DBHOST            | Hostname of the MariaDB. This corresponds to the container name of the DB-Container | e.g. mariadb |
+| DBUSER            | Username for the DB to be backed up. |           |
+| DBPASSWORD        | Password for the DB to be backed up. |           |
+| DBNAME            | Database name.  |           |
+| DUMP              | File name of the mysql dump file. | backup.sql |
+| RESTIC_REPOSITORY | Target Repository where the backup should be stored to. (Any type Restic supports) |           |
+| RESTIC_PASSWORD   | Password to the given Restic Repository. |           |
+| UID               | Numeric representation of the UID that should own the created dump and execute the restic backup. | e.g. 1000 |
+
+
 
 There are no default values behind these variables, you have to provide all  of them!
 
