@@ -1,4 +1,6 @@
-Take the mariadb image, add restic to it and finish it off with a bash script and some env variables and you get a nice way to back up arbitrary mariadb databases to a restic repo
+Take the alpine image, add restic and the mariadb client to it and finish it off with a bash script and some env variables and you get a nice way to back up arbitrary mariadb databases to a restic repo
+
+**NOTE** Neither mariadb nor mysql offer apline images. Since I can't be bothered to fetch and install various versions of the mariadb/mysql client software, this project will only support the mariadb version currently in the package manager (apk) of the used alpine linux version (3.14). In this case the mariadb version is 10.5.
 
 ## Config
 
@@ -23,7 +25,7 @@ For the values and meanings of the RESTIC_* variables and other variables you ma
 
 ## Other stuff
 
-- This image has ssh/sftp installed to make use of sftp as repository targets. In order to make headless, Host Key Verification is disabled. **Only use ssh/sftp servers that you really trust**
+- This image has ssh/sftp installed to make use of sftp as repository targets. In order to make this script headless, Host Key Verification is disabled. **Only use ssh/sftp servers that you really trust**
 
 - You can set a full path for file as well however, working outside of /opt or /tmp will most likely cause problems with non-existing directories
 
